@@ -1,11 +1,17 @@
 const express = require('express');
+const evenService = require('../service/evenService')
 
+let windowPrevState = [];
+let windowCurrState = [];
+let numbers = [];
 function evenController(req, res) {
-    const arr = [];
-    for (let i = 0; i < 10; i += 2) {
-        arr.push(i);
-    }
-    res.send(arr);
+    numbers = evenService();
+
+    res.status(201).json({
+        "windowPrevState" : windowPrevState,
+        "windowCurrState" : windowCurrState,
+        "numbers" : numbers,
+    })
 }
 
 module.exports = evenController;
