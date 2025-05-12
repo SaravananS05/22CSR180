@@ -6,7 +6,7 @@ let windowCurrState = [];
 let numbers = [];
 function evenController(req, res) {
     numbers = evenService();
-
+    console.log(numbers);
     res.status(201).json({
         "windowPrevState" : windowPrevState,
         "windowCurrState" : windowCurrState,
